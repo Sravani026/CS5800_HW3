@@ -1,0 +1,56 @@
+@startuml
+
+class Instructor {
+  - firstName: String
+  - lastName: String
+  - officeNumber: String
+
+  + getFirstName(): String
+  + setFirstName(firstName: String): void
+  + getLastName(): String
+  + setLastName(lastName: String): void
+  + getOfficeNumber(): String
+  + setOfficeNumber(officeNumber: String): void
+  + toString(): String
+}
+
+class Textbook {
+  - title: String
+  - author: String
+  - publisher: String
+
+  + getTitle(): String
+  + setTitle(title: String): void
+  + getAuthor(): String
+  + setAuthor(author: String): void
+  + getPublisher(): String
+  + setPublisher(publisher: String): void
+  + toString(): String
+}
+
+class Course {
+  - name: String
+  - instructors: ArrayList<Instructor>
+  - textbooks: ArrayList<Textbook>
+
+  + Course()
+  + getName(): String
+  + setName(name: String): void
+  + getInstructors(): ArrayList<Instructor>
+  + setInstructors(instructors: ArrayList<Instructor>): void
+  + addInstructor(instructor: Instructor): void
+  + getTextbooks(): ArrayList<Textbook>
+  + setTextbooks(textbooks: ArrayList<Textbook>): void
+  + addTextbook(textbook: Textbook): void
+  + toString(): String
+  + printCourse(): void
+}
+
+class Driver {
+  + main(args: String[]): void
+}
+
+Instructor --o Course : "1..2"
+Textbook --o Course : "1..2"
+
+@enduml
